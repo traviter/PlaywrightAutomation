@@ -9,7 +9,9 @@ export default defineConfig({
   expect: {
     timeout: 5_000,
   },
-  reporter: 'html',
+  reporter: [
+    ['html', { open: 'always' }]
+  ],
   use: {
     browserName: 'chromium',
     headless: !!process.env.CI

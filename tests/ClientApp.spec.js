@@ -2,11 +2,18 @@ import { expect, test } from '@playwright/test';
 
 const loginPage = "https://rahulshettyacademy.com/client/#/auth/login";
 
-test.only('Assert First Card Contents', async ({ page }) => {
+test('Assert First Card Contents', async ({ page }) => {
     await signIn(page);
     const firstCardTitle = cardTitles(page).first();
     console.log(await firstCardTitle.textContent());
     await expect(firstCardTitle).toContainText('ADIDAS ORIGINAL');
+})
+
+test('Assert All Expected Card Titles', async ({ page }) => {
+    await signIn(page);
+    await cardTitles(page).first().waitFor();
+    const allCardTitles = await cardTitles(page).allTextContents();
+    expect(allCardTitles).toEqual(['ADIDAS ORIGINAL', 'ZARA COAT 3', 'iphone 13 pro']);
 })
 
 const cardTitles = (page) => page.locator('.card-body > h5 > b');

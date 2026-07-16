@@ -16,7 +16,7 @@ test('Title Playwright test', async ({ page }) => {
     await expect(page).toHaveTitle("Google");
 });
 
-test.('Test Username/Password failure', async ({ page }) => {
+test('Test Username/Password failure', async ({ page }) => {
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
     await page.locator('#username').fill("johndoe");
     await page.locator('input[type="password"]').fill("testpassword");

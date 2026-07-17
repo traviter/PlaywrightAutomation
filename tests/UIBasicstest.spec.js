@@ -63,10 +63,21 @@ test('Assert Sample Card Title Correct', async ({ page }) => {
     await expect(firstCardTitle).toContainText('iphone X');
 })
 
-test.only('Assert blinking links are present', async ({ page }) => {
+test('Assert blinking links are present', async ({ page }) => {
     await signIn(page);
-    await expect(page.locator("[href*='documents-request']")).toHaveAttribute('class', 'blinkingText');
-    await expect(page.locator("[href*='techsmarthire']")).toHaveAttribute('class', 'blinkingText');
+    await expect(floatingLinks(page).first()).toHaveAttribute('class', 'blinkingText');
+    await expect(floatingLinks(page).nth(1)).toHaveAttribute('class', 'blinkingText');
+});
+
+test.only('Assert floating link opens new window', async ({ browser }) => {
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    await signIn(page);
+    const [newPage] = await Promise.all([
+        context.waitForEvent('page'),
+        floatingLinks(page).first().click()
+    ]);
+    await expect(newPage).toHaveTitle("RS Academy");
 });
 
 const cardTitles = (page) => page.locator('div.card-body > h4.card-title');
@@ -88,4 +99,5 @@ const userRadioField = (page) => authRadioFields(page).last()
 const modalDialog = (page) => page.locator('#myModal')
 const signInButton = (page) => page.locator('#signInBtn')
 const termsField = (page) => page.locator('#terms')
+const floatingLinks = (page) => page.locator('body').locator('div').nth(0).locator('a')
 const signInError = (page) => page.locator("[style*='display: block']")

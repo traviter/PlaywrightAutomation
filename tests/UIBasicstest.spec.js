@@ -63,6 +63,12 @@ test('Assert Sample Card Title Correct', async ({ page }) => {
     await expect(firstCardTitle).toContainText('iphone X');
 })
 
+test.only('Assert blinking links are present', async ({ page }) => {
+    await signIn(page);
+    await expect(page.locator("[href*='documents-request']")).toHaveAttribute('class', 'blinkingText');
+    await expect(page.locator("[href*='techsmarthire']")).toHaveAttribute('class', 'blinkingText');
+});
+
 const cardTitles = (page) => page.locator('div.card-body > h4.card-title');
 
 const signIn = async (page) => {

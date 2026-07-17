@@ -69,7 +69,7 @@ test('Assert blinking links are present', async ({ page }) => {
     await expect(floatingLinks(page).nth(1)).toHaveAttribute('class', 'blinkingText');
 });
 
-test.only('Assert floating link opens new window', async ({ browser }) => {
+test('Assert floating link opens new window', async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     await signIn(page);

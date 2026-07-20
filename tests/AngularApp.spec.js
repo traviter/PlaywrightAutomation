@@ -13,6 +13,7 @@ test('Test form selection and submission using various accessors', async ({ page
 });
 
 test('Test shop selection', async ({ page }) => {
+    test.setTimeout(60_000);
     const slowExpect = expect.configure({ timeout: 10_000 });
     await page.goto(pageUrl)
     await page.getByRole("link", { name: "Shop" }).click();

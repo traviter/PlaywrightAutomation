@@ -13,6 +13,8 @@ export default defineConfig({
     ['html', { open: 'always' }]
   ],
   use: {
+    actionTimeout: 10_000,
+    navigationTimeout: 30_000,
     browserName: 'chromium',
     headless: !!process.env.CI
   }

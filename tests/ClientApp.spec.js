@@ -67,9 +67,9 @@ const signIn = async (page) => {
     await signInButton(page).click();
 }
 
-const usernameField = (page) => page.locator("#userEmail")
-const passwordField = (page) => page.locator('input[type="password"]')
-const signInButton = (page) => page.locator("#login")
+const usernameField = (page) => page.getByPlaceholder("email@example.com");
+const passwordField = (page) => page.getByPlaceholder("enter your passsword");
+const signInButton = (page) => page.getByRole("button", { name: "Login" });
 const cardTitles = (page) => page.locator('.card-body > h5 > b');
 const productCard = (page, productName) => page.locator('.card').filter({
     hasText: productName

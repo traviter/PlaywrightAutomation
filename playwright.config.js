@@ -16,7 +16,9 @@ export default defineConfig({
     actionTimeout: 10_000,
     navigationTimeout: 30_000,
     browserName: 'chromium',
-    headless: !!process.env.CI
+    headless: !!process.env.CI,
+    screenshot: 'on',
+    trace: 'retain-on-failure',
   }
 });
 

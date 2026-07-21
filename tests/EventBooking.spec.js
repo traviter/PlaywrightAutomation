@@ -7,8 +7,7 @@ const bookingsUrl = baseUrl + "/bookings";
 const loginEmail = "traviter@gmail.com";
 const loginPassword = "8sx!vWjw54jJBAS";
 
-
-test.only('E2E Event Booking', async ({ page }) => {
+test('E2E Event Booking', async ({ page }) => {
     await login(page);
 
     await navigateToEventCreation(page);

@@ -1,9 +1,8 @@
 import { expect, test, request } from '@playwright/test';
-import { LoginAPI, LoginPage } from './pages/Login';
+import { LoginAPI, LoginPage, API_LOGIN, LOGIN_URL } from './pages/Login';
 import { BASE_URL } from '../util/constants';
-import { DashboardPage } from './pages/Dashboard';
-
-const API_LOGIN = BASE_URL + "/api/ecom/auth/login"
+import { DASHBOARD_URL, DashboardPage } from './pages/Dashboard';
+import { mockApi } from '../util/mocks';
 
 var accessToken;
 
@@ -48,4 +47,14 @@ test('Test Log in Before Navigation', async ({ page }) => {
     await login.login();
     await dashboard.goto();
     await dashboard.expectLoaded();
-})
+});
+
+test('Test Log in Failure', async ({ page }) => {
+    mockApi(page, API_LOGIN, { status: 400 })
+    const dashboard = new DashboardPage(page);
+    const login = new LoginPage(page);
+    await dashboard.goto();
+    await login.login();
+    await page.waitForTimeout(2_000)
+    await expect(page).toHaveURL(LOGIN_URL);
+});

@@ -2,8 +2,8 @@ import { expect, request } from '@playwright/test';
 import { BASE_URL } from '../../util/constants';
 import { typeText } from '../../util/behavior';
 
-const API_LOGIN = BASE_URL + "/api/ecom/auth/login"
-const LOGIN_URL = BASE_URL + "/client/#/auth/login";
+export const API_LOGIN = BASE_URL + "/api/ecom/auth/login"
+export const LOGIN_URL = BASE_URL + "/client/#/auth/login";
 
 export const CREDENTIALS = { userEmail: "traviter@gmail.com", userPassword: "c#3QVpe.iE2HQPh" }
 

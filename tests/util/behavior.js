@@ -1,3 +1,5 @@
+import test from "@playwright/test";
+
 import {
     typingSpeed,
     typingVariation,
@@ -16,9 +18,11 @@ function getTypingDelay(character) {
     return delay;
 }
 
-export async function typeText(locator, value) {
-    for (const char of value) {
-        await locator.press(char);
-        await locator.page().waitForTimeout(getTypingDelay(char));
-    }
+export const typeText = async (locator, text) => {
+    await test.step('Typing ' + text, async () => {
+        for (const char of text) {
+            await locator.press(char);
+            await locator.page().waitForTimeout(getTypingDelay(char));
+        }
+    });
 }

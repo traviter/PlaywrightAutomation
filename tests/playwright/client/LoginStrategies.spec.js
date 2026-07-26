@@ -1,8 +1,8 @@
 import { expect, test, request } from '@playwright/test';
-import { LoginAPI, LoginPage, API_LOGIN, LOGIN_URL } from './pages/Login';
-import { BASE_URL } from '../util/constants';
-import { DASHBOARD_URL, DashboardPage } from './pages/Dashboard';
-import { mockApi } from '../util/mocks';
+import { LoginAPI, LoginPage, API_LOGIN, LOGIN_URL } from '../../../src/pages/client/Login';
+import { BASE_URL } from '../../../src/util/constants';
+import { DASHBOARD_URL, DashboardPage } from '../../../src/pages/client/Dashboard';
+import { mockApi } from '../../../src/util/mocks';
 
 var accessToken;
 

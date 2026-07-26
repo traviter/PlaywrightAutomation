@@ -4,7 +4,7 @@ import { defineConfig } from '@playwright/test';
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
-  testDir: './tests',
+  testDir: './tests/playwright',
   timeout: 30_000,
   expect: {
     timeout: 5_000,

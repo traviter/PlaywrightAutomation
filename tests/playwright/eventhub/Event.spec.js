@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
-import { LoginPage } from './pages/Login';
-import { EventsPage, EventsLocators } from './pages/Events';
-import { mockApi } from '../util/mocks';
+import { LoginPage } from '../../../src/pages/eventhub/Login';
+import { EventsPage, EventsLocators } from '../../../src/pages/eventhub/Events';
+import { mockApi } from '../../../src/util/mocks';
 import { FOUR_EVENTS_RESPONSE, SIX_EVENTS_RESPONSE } from './MockResponses';
 
 test('Verify banner is not visible when 4 events are returned', async ({ page }) => {

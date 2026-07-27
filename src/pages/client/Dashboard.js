@@ -1,5 +1,5 @@
 import { expect, request } from '@playwright/test';
-import { BASE_URL } from '../../util/constants';
+import { BASE_URL } from '../../util/constants.js';
 
 export const DASHBOARD_URL = BASE_URL + "/client/#/dashboard/dash"
 

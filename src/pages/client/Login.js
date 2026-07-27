@@ -1,6 +1,6 @@
 import { expect, request } from '@playwright/test';
-import { BASE_URL } from '../../util/constants';
-import { typeText } from '../../util/behavior';
+import { BASE_URL } from '../../util/constants.js';
+import { typeText } from '../../util/behavior.js';
 
 export const API_LOGIN = BASE_URL + "/api/ecom/auth/login"
 export const LOGIN_URL = BASE_URL + "/client/#/auth/login";

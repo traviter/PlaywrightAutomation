@@ -1,3 +1,4 @@
+import '../frameworkSetup.js';
 import { expect, test } from '@playwright/test';
 
 const baseUrl = "https://eventhub.rahulshettyacademy.com";

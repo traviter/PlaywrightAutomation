@@ -1,3 +1,4 @@
+import '../frameworkSetup.js';
 import { expect, test } from '@playwright/test';
 
 const loginPage = "https://rahulshettyacademy.com/client/#/auth/login";

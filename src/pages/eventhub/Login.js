@@ -1,5 +1,5 @@
-import { EVENT_HUB_URL } from '../../util/constants';
-import { typeText } from '../../util/behavior';
+import { EVENT_HUB_URL } from '../../util/constants.js';
+import { typeText } from '../../util/behavior.js';
 
 export const LOGIN_URL = EVENT_HUB_URL + "/login";
 

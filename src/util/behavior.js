@@ -4,7 +4,7 @@ import {
     typingSpeed,
     typingVariation,
     typingSpacePause
-} from "./constants";
+} from "./constants.js";
 
 function getTypingDelay(character) {
     const variation = Math.random() * (typingVariation * 2) - typingVariation;
@@ -19,10 +19,16 @@ function getTypingDelay(character) {
 }
 
 export const typeText = async (locator, text) => {
-    await test.step('Typing ' + text, async () => {
+    await logStep('Typing ' + text, async () => {
         for (const char of text) {
             await locator.press(char);
             await locator.page().waitForTimeout(getTypingDelay(char));
         }
     });
+}
+
+export let logStep = async (text, action) => await action();
+
+export const setStepLoggingImplementation = (impl) => {
+    logStep = impl;
 }

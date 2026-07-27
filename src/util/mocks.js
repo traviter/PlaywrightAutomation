@@ -1,4 +1,4 @@
-import { test } from '@playwright/test';
+import { logStep } from './behavior.js';
 
 function isFulfillOptions(obj) {
     return obj &&
@@ -19,7 +19,7 @@ export const mockApi = async (page, url, mock = {}) => {
 
     await page.route(url, async route => {
         const logText = `🎭 ${route.request().method()} ${route.request().url()}`;
-        await test.step(logText,
+        await logStep(logText,
             async () => {
                 hitCount++;
 

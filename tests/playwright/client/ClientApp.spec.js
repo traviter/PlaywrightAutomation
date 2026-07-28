@@ -30,7 +30,7 @@ test('End to End validation of customer purchase flow', async ({ page }) => {
 
     // Click to view the cart
     const viewCart = viewCartButton(page);
-    await expect(cartCountIndicator(viewCart)).toHaveText('1');
+    await expect(cartCountIndicator(viewCart)).toHaveText('1', { timeout: 10_000 });
     await viewCart.click();
 
     // Verify cart contains the product

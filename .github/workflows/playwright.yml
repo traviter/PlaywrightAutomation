@@ -16,10 +16,10 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - name: Azure Login
-    - uses: azure/login@v3
+      uses: azure/login@v3
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Run Playwright tests on Azure
       env:
         PLAYWRIGHT_SERVICE_URL: "${{ vars.PLAYWRIGHT_SERVICE_URL }}"
-      run: npx run test:remote
+      run: npm run test:remote

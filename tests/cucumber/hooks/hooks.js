@@ -6,7 +6,6 @@ import { LoginPage } from '../../../src/pages/eventhub/Login.js';
 import { UpcomingEventsPage } from '../../../src/pages/eventhub/UpcomingEvents.js';
 
 const headless = !!process.env.CI;
-const openReport = !process.env.CI;
 
 setDefaultTimeout(30_000);
 

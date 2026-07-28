@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "test:bdd": "cucumber-js --config cucumber.mjs"
+    "test:bdd": "cucumber-js --config cucumber.mjs",
+    "test:remote": "npx playwright test --config playwright.service.config.cjs --workers 4"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "devDependencies": {
+    "@azure/identity": "^4.13.1",
+    "@azure/playwright": "^1.1.6",
     "@playwright/test": "^1.61.1",
     "@types/node": "^26.1.1"
   },
